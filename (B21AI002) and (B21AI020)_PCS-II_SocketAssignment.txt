@@ -1,0 +1,59 @@
+## Server 1 Tests ##
+
+[Test 1: Basic Arithmetic Operations]
+Input: 2 + 3, 10 - 5, 6 * 7, 20 / 4
+Expected Output: 5, 5, 42, 5
+Description: Tests whether the server can correctly perform basic arithmetic operations with two integers.
+
+[Test 2: Multiple Clients]
+Input: (Client 1) 2 + 3, (Client 2) 4 * 5
+Expected Output: 5, 20
+Description: Tests whether the server can handle multiple clients connecting and performing arithmetic operations simultaneously.
+
+[Test 3: Concurrent Clients]
+Input: (Client 1) 2 + 3, (Client 2) 4 + 5
+Expected Output: Connection refused (Client 2)
+Description: Tests whether the server can handle multiple clients attempting to connect concurrently.
+
+[Test 4: Invalid Operator]
+Input: 2 % 3
+Expected Output: Error: Invalid operator
+Description: Tests whether the server can handle an invalid operator input and return an appropriate error message.
+
+[Test 5: Division by Zero]
+Input: 2 / 0
+Expected Output: Error: Division by zero
+Description: Tests whether the server can handle division by zero and return an appropriate error message.
+
+
+## Server 2 Tests ##
+
+[Test 1: Basic Arithmetic Operations]
+Input: 2 + 3, 10 - 5, 6 * 7, 20 / 4
+Expected Output: 5, 5, 42, 5
+Description: Tests whether the server can correctly perform basic arithmetic operations with two integers.
+
+[Test 2: Multiple Clients]
+Input: (Client 1) 2 + 3, (Client 2) 4 * 5
+Expected Output: (Client 1) 5, (Client 2) 20
+Description: Tests whether the server can handle multiple clients connecting and performing arithmetic operations simultaneously.
+
+[Test 3: Concurrent Clients]
+Input: (Client 1) 2 + 3, (Client 2) 4 + 5
+Expected Output: Connection refused (Client 2)
+Description: Tests whether the server can handle multiple clients attempting to connect concurrently.
+
+[Test 4: Message Length Limit]
+Input: (Client 1) This is a message that exceeds the maximum length allowed by the server.
+Expected Output: Error: Message too long
+Description: Tests whether the server can handle messages that exceed the maximum length allowed and return an appropriate error message.
+
+[Test 5: Special Characters]
+Input: (Client 1) This is a message with $pecial character$.
+Expected Output: (Client 1) This is a message with \$pecial character\$.
+Description: Tests whether the server can properly escape special characters in messages to avoid potential security vulnerabilities.
+
+[Test 6: Unexpected Disconnection]
+Input: (Client 1) Hello, (Client 2) World! (Client 2 disconnects unexpectedly)
+Expected Output: (Client 1) Connection lost: Client 2 has disconnected.
+Description: Tests whether the server can properly handle unexpected client disconnections and notify the other clients. 
